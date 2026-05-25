@@ -16,5 +16,8 @@ RUN pip install -r requirements.txt
 # Expose the port Flask runs on
 EXPOSE 5000
 
-# Start the Flask application
-CMD ["python", "app.py"]
+# Set Flask app entry point
+ENV FLASK_APP=app.py
+
+# Start the Flask application on all interfaces
+CMD ["flask", "run", "--host=0.0.0.0", "--port=5000"]
